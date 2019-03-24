@@ -1,14 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
+import { ImagePeliPipe } from './pipes/image-peli.pipe';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { app_routes } from './app.routes';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { SearchComponent } from './components/search/search.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    SearchComponent,
+    ImagePeliPipe,
+    LoadingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    FormsModule,
+    RouterModule.forRoot(app_routes, { useHash: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

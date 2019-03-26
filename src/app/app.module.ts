@@ -11,6 +11,7 @@ import { app_routes } from './app.routes';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     NavbarComponent,
     SearchComponent,
     ImagePeliPipe,
-    LoadingComponent
+    LoadingComponent,
+    TarjetasComponent
   ],
   imports: [
     BrowserModule,

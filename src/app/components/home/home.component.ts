@@ -9,13 +9,22 @@ import { PeliculasService } from '../../services/peliculas.service';
 export class HomeComponent implements OnInit, OnDestroy {
 
   peliculas: any[] = [];
+  loading = false;
 
   constructor(private _pelisService: PeliculasService) { }
 
   ngOnInit() {
+    this.loading = true;
 
     this._pelisService.getPopulares()
-    .subscribe(pelis => this.peliculas = pelis);
+    .subscribe(pelis => {
+      this.peliculas = pelis;
+
+      setTimeout(() => {
+        this.loading = false;
+      }, 2000);
+     
+    });
   }
 
   buscarPeliculas(texto: string) {

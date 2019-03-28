@@ -12,6 +12,10 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.component';
+import { CineActualComponent } from './components/searchviews/cine-actual/cine-actual.component';
+import { CinePopularComponent } from './components/searchviews/cine-popular/cine-popular.component';
+import { CineNinosComponent } from './components/searchviews/cine-ninos/cine-ninos.component';
+import { PeliculaComponent } from './components/pelicula/pelicula.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.compone
     SearchComponent,
     ImagePeliPipe,
     LoadingComponent,
-    TarjetasComponent
+    TarjetasComponent,
+    CineActualComponent,
+    CinePopularComponent,
+    CineNinosComponent,
+    PeliculaComponent
   ],
   imports: [
     BrowserModule,

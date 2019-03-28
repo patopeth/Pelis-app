@@ -22,13 +22,43 @@ getPopulares() {
                   }));
 }
 
-buscarPeliculas(texto: string) {
-  let url = `${this.urlMoviedb}/search/movie?query=${texto}api_key=${this.apiKey}&language=es&callback=JSONP_CALLBACK`;
+getNinos() {
+  // tslint:disable-next-line:max-line-length
+  let url = `${this.urlMoviedb}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apiKey}&language=es&callback=JSONP_CALLBACK`;
+
+  return this.http.jsonp(url, '')
+                  .pipe(take(1), map((res) => {
+                    console.log(res['results']); 
+                    return res['results'];
+                  }));
+}
+
+getActuales() { 
+  let desde = new Date();
+  let hasta = new Date();
+  hasta.setDate(hasta.getDate() + 7);
+
+  let desdeStr = `${desde.getFullYear()}-${desde.getMonth() + 1}-${desde.getDay()}`;
+  let hastaStr = `${hasta.getFullYear()}-${hasta.getMonth() + 1}-${hasta.getDay()}`;
+
+    // tslint:disable-next-line:max-line-length
+  let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${desdeStr}&primary_release_date.lte=${hastaStr}&api_key=${this.apiKey}&language=es&callback=JSONP_CALLBACK`;
+
+  return this.http.jsonp(url, '')
+                  .pipe(take(1), map((res) => {
+                    console.log(res['results']); 
+                    return res['results'];
+                  }));
+}
+
+
+buscarPeliculas(id: number) {
+  let url = `${this.urlMoviedb}/movie/${id}?api_key=${this.apiKey}&language=es&callback=JSONP_CALLBACK`;
 
   return this.http.jsonp(url, '')
   .pipe(map((res) => {
-    console.log(res['results']); 
-    return res['results'];
+    console.log(res); 
+    return res;
   }));
 }
 

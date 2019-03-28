@@ -1,0 +1,12 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading" class="jumbotron fadeIn animated">
+    <h1 class="display-4">{{pelicula?.title}}</h1>
+    <img [src]="pelicula | imagePeli: 'true'" [alt]="pelicula?.title">
+    <p class="lead">{{pelicula?.tagline}}</p>
+    <hr class="my-4">
+    <p>{{pelicula?.overview}}</p>
+    <p class="lead">
+        <a class="btn btn-danger btn-lg" routerLink="/home" role="button">Regresar</a>
+    </p>
+</div>

@@ -7,6 +7,6 @@ export const searchviews_routes: Routes = [
   { path: 'cineactual', component: CineActualComponent },
   { path: 'cineninos', component: CineNinosComponent },
   { path: 'cinepopular', component: CinePopularComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'cinepopular' }
+  { path: '**', pathMatch: 'full', redirectTo: 'cineactual' }
 ];
 
